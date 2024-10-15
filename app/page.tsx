@@ -1,100 +1,221 @@
-import Image from "next/image";
+/* eslint-disable react/no-unescaped-entities */
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle, FileText, Search, Zap } from "lucide-react";
+import { ModeToggle } from "@/components/ui/ModeToggle";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <header className="container mx-auto px-4 py-8">
+        <nav className="flex justify-between items-center">
+          <Link href="/" className="text-2xl font-bold text-gray-800">
+            LegalTech AI
+          </Link>
+          <div className="space-x-4 flex items-center gap-6">
+            <Link href="/auth" className="text-gray-600 font-semibold hover:text-gray-800">
+              Login
+            </Link>
+            <Button asChild>
+              <Link href="/auth">Sign Up</Link>
+            </Button>
+            <ModeToggle/>
+          </div>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="container mx-auto px-4 py-16">
+        <section className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Revolutionize Your Legal Practice with AI
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Streamline research, automate documents, and enhance your efficiency
+            with our cutting-edge LegalTech platform.
+          </p>
+          <Button size="lg" asChild>
+            <Link href="/auth">Get Started for Free</Link>
+          </Button>
+        </section>
+
+        <section className="grid md:grid-cols-2 gap-8 mb-16">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Search className="mr-2" />
+                Advanced Legal Research
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Access a vast database of case law, statutes, and legal
+                documents. Our AI-powered search helps you find relevant
+                information quickly and accurately.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <FileText className="mr-2" />
+                Document Automation
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Generate legal documents in minutes. Our intelligent templates
+                adapt to your specific needs, saving you hours of manual work.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Zap className="mr-2" />
+                AI-Powered Insights
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Gain valuable insights from your cases and documents. Our AI
+                analyzes patterns and provides recommendations to strengthen
+                your legal strategy.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <CheckCircle className="mr-2" />
+                Easy Case Management
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                Manage all your cases in one place. Our intuitive interface
+                makes it easy to track progress, set reminders, and collaborate
+                with your team.
+              </p>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Handling Your Case Has Never Been Easier
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            From research to document generation, our platform simplifies every
+            step of your legal workflow.
+          </p>
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/demo">Watch Demo</Link>
+            </Button>
+            <Button size="lg" asChild>
+              <Link href="/auth">Start Free Trial</Link>
+            </Button>
+          </div>
+        </section>
+
+        <section className="bg-gray-100 rounded-lg p-8 mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+            What Our Users Say
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card>
+              <CardContent className="pt-6">
+                <p className="italic">
+                  "LegalTech AI has transformed the way I practice law. The
+                  document automation feature alone has saved me countless
+                  hours."
+                </p>
+                <p className="font-semibold mt-4">
+                  - Sarah J., Corporate Lawyer
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6">
+                <p className="italic">
+                  "The AI-powered research tool is a game-changer. I can find
+                  relevant cases and statutes in minutes instead of hours."
+                </p>
+                <p className="font-semibold mt-4">
+                  - Michael R., Litigation Attorney
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section className="text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Ready to Transform Your Legal Practice?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Join thousands of lawyers who are already benefiting from our
+            AI-powered platform.
+          </p>
+          <Button size="lg" asChild>
+            <Link href="/signup">Get Started Now</Link>
+          </Button>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="bg-gray-800 text-white mt-16">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">LegalTech AI</h3>
+              <p>Empowering lawyers with cutting-edge AI technology.</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/about" className="hover:underline">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/features" className="hover:underline">
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pricing" className="hover:underline">
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:underline">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/terms" className="hover:underline">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="hover:underline">
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p>&copy; 2023 LegalTech AI. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
